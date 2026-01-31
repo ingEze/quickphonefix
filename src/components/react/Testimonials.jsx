@@ -13,7 +13,7 @@ export default function Testimonials() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
+    }, 3500)
     return () => clearInterval(interval)
   }, [])
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function BrandNav({ brands }) {
   const [activeSection, setActiveSection] = useState('')
@@ -22,10 +22,36 @@ export default function BrandNav({ brands }) {
     }
 
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Initial check
+    handleScroll() 
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [brands])
+
+  const navRef = useRef(null)
+  const itemRefs = useRef({})
+  useEffect(() => {
+    if(!activeSection) return
+
+    const container = navRef.current
+    const item = itemRefs.current[activeSection]
+
+    if(!container || !item) return
+
+    const containerRect = container.getBoundingClientRect()
+    const itemRect = item.getBoundingClientRect()
+
+    const offset =
+      itemRect.left -
+      containerRect.left -
+      containerRect.width / 2 +
+      itemRect.width / 2
+
+    container.scrollTo({
+      left: container.scrollLeft + offset,
+      behavior: 'smooth'
+    })
+
+  }, [activeSection])
 
   const scrollToBrand = (brand) => {
     const element = document.getElementById(brand.toLowerCase())
@@ -49,8 +75,8 @@ export default function BrandNav({ brands }) {
           
           <div className="absolute right-0 top-0 bottom-0 w-12 bg-linear-to-l from-slate-950/95 to-transparent pointer-events-none z-10 hidden md:block"></div>
 
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-3 min-w-max justify-center px-2">
+          <div ref={navRef} className="overflow-x-auto scrollbar-hide">
+            <nav className="flex gap-3 min-w-max justify-center px-2">
               {brands.map((brand) => {
                 const brandId = brand.toLowerCase()
                 const isActive = activeSection === brandId
@@ -58,11 +84,12 @@ export default function BrandNav({ brands }) {
                 return (
                   <button
                     key={brand}
+                    ref={(el) => (itemRefs.current[brandId] = el)}
                     onClick={() => scrollToBrand(brand)}
                     className={`
                       group relative px-6 py-3 rounded-full font-semibold text-sm
                       transition-all duration-300 transform hover:scale-105
-                      whitespace-nowrap
+                      whitespace-nowrap shrink-0 cursor-pointer
                       ${isActive 
                         ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50' 
                         : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 hover:text-white border border-slate-700/50 hover:border-purple-500/50'
@@ -83,7 +110,7 @@ export default function BrandNav({ brands }) {
                   </button>
                 )
               })}
-            </div>
+            </nav>
           </div>
         </div>
 

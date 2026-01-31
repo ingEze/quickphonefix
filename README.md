@@ -12,24 +12,6 @@
 
 * Frontend: HTML, CSS, Tailwind CSS, Astro con React.
 
-## 📌 Instalación
-
-1. Clonar el repositorio:
-
-   ```bash
-   git clone https://github.com/ingeze/quickphonefix.git
-   ```
-2. Instalar dependencias:
-
-   ```bash
-   npm install
-   ```
-3. Ejecutar el proyecto:
-
-   ```bash
-   npm start
-   ```
-
 ## 🤝 Contribuir
 
 Si quieres contribuir a **QuickPhoneFix**, ¡todas las contribuciones son bienvenidas!
