@@ -3,24 +3,24 @@ import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import Navbar from '../components/react/Navbar.jsx'
 import Hero from '../components/react/Hero.jsx'
-import Services from '../components/react/Services.jsx'
-import Brands from '../components/react/Brands.jsx'
-import Works from '../components/react/Works.jsx'
+import Services from '../components/mainPage/Services.astro'
+import Brands from '../components/mainPage/Brands.astro'
+import Works from '../components/mainPage/Works.astro'
 import Testimonials from '../components/react/Testimonials.jsx'
-import Contact from '../components/react/Contact.jsx'
-import Footer from '../components/react/Footer.jsx'
+import Contact from '../components/mainPage/Contact.astro'
+import Footer from '../components/mainPage/Footer.astro'
 
 const works = await getCollection('works')
 ---
 <Layout title="QuickPhoneFix">
 	<div class="min-h-screen bg-slate-950 text-white overflow-x-hidden">
-	<Navbar client:load/>
-	<Hero client:load />
-	<Services />
-	<Brands />
-	<Works works={works} />
-	<Testimonials client:load/>
-	<Contact />
-	<Footer />
+		<Navbar client:visible/>
+		<Hero client:visible />
+		<Services />
+		<Brands />
+		<Works works={works} />
+		<Testimonials client:visible/>
+		<Contact />
+		<Footer />
 	</div>
 </Layout>

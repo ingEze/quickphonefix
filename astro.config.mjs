@@ -6,5 +6,12 @@ import vercel from "@astrojs/vercel/serverless"
 export default defineConfig({
   output: "server",
   adapter: vercel({}),
-  integrations: [react()]
+  integrations: [react()],
+  server: {
+    host: true,
+    allowedHosts: [
+      'hokily-unsociological-henley.ngrok-free.dev', 
+      '.ngrok-free.dev'
+    ],
+  },
 })

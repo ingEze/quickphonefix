@@ -1,0 +1,57 @@
+---
+import checkCircle from 'lucide-static/icons/check-circle.svg?raw'
+import arrowRight from 'lucide-static/icons/arrow-right.svg?raw'
+
+const brands = [
+    { 
+      name: "iPhone", 
+      models: ["11", "12", "13", "14", "15", "16"]
+    },
+    { 
+      name: "Samsung", 
+      models: ["Galaxy A Series", "Galaxy S Series", "Galaxy Note"]
+    },
+    { 
+      name: "Motorola", 
+      models: ["Moto G Series", "Moto E Series", "Edge Series"]
+    },
+    { 
+      name: "Xiaomi", 
+      models: ["Redmi Note", "Mi Series", "Poco"]
+    }
+  ]
+---
+
+<section id="brands" class="py-20 px-4 bg-slate-900/30">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-black text-center mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Marcas que Reparamos
+        </h2>
+        <p class="text-center text-slate-400 mb-16 text-lg">Trabajamos con todas las marcas principales</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {brands.map((brand) => (
+            <div class="bg-slate-950 border border-slate-800 rounded-xl p-6 hover:border-purple-500 transition-all hover:transform hover:-translate-y-1">
+              <h3 class="text-2xl font-bold mb-4 text-purple-400">{brand.name}</h3>
+              {brand.models.map((model) => (
+                <p class="text-slate-300 mb-2 flex items-center gap-2">
+                  <span class="text-green-400 shrink-0 mr-0.5" set:html={checkCircle}></span>
+                  <span>{model}</span>
+                </p>
+              ))}
+              <p class="text-slate-500 text-sm mt-3">Y muchos más...</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center">
+          <a 
+            href="/brands" 
+            class="inline-flex items-center gap-2 bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-purple-500/50"
+          >
+            ¿Quieres ver todas las marcas con las que trabajamos?
+            <span class="w-5 h-5" set:html={arrowRight}></span>
+          </a>
+        </div>
+      </div>
+</section>
