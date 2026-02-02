@@ -1,5 +1,4 @@
-
-import { useState } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import {
   IphoneIcon,
   SamsungIcon,
@@ -26,25 +25,59 @@ const iconMap = {
   lg: LgIcon,
 }
 
+const ModelCard = ({ model }) => {
+  return (
+    <div
+      className="group/item relative bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl p-5 hover:bg-slate-800/50 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-linear-to-r from-transparent via-purple-500/5 to-transparent -translate-x-full group-hover/item:translate-x-full transition-transform duration-1000"></div>
+      
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-linear-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+          <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+        
+        <span className="text-slate-300 font-medium group-hover/item:text-white transition-colors">
+          {model}
+        </span>
+      </div>
+
+      <div className="absolute top-3 right-3 w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity">
+        <div className="absolute inset-0 bg-green-500 rounded-full animate-ping"></div>
+      </div>
+    </div>
+  )
+}
+
 export default function BrandSection({ id, name, subtitle, iconColor, models, index }) {
   const Icon = iconMap[id]
   const [searchTerm, setSearchTerm] = useState('')
   const [showAll, setShowAll] = useState(false)
+  const containerRef = useRef(null)
 
-  const filteredModels = models.filter(model => 
-    model.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredModels = useMemo(() => 
+    models.filter(model => 
+      model.toLowerCase().includes(searchTerm.toLowerCase())
+    ), [models, searchTerm]
   )
 
-  const displayedModels = showAll ? filteredModels : filteredModels.slice(0, 8)
-  const hasMore = filteredModels.length > 8
+  const getInitialCount = () => {
+    const total = filteredModels.length
+    if (total <= 12) return total
+    return 12
+  }
+  
+  const initialDisplayCount = getInitialCount()
+  const displayedModels = showAll ? filteredModels : filteredModels.slice(0, initialDisplayCount)
+  const hasMore = filteredModels.length > initialDisplayCount
 
   return (
     <div 
       id={id} 
+      ref={containerRef}
       className="brand-section group scroll-mt-28 mb-5"
-      style={{
-        animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
-      }}
     >
       <div className="bg-linear-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-3xl p-8 mb-8 hover:border-purple-500/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-500/10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -102,31 +135,10 @@ export default function BrandSection({ id, name, subtitle, iconColor, models, in
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {displayedModels.map((model, idx) => (
-          <div
-            key={idx}
-            className="group/item relative bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl p-5 hover:bg-slate-800/50 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden"
-            style={{
-              animation: `fadeIn 0.4s ease-out ${idx * 0.05}s both`
-            }}
-          >
-            <div className="absolute inset-0 bg-linear-to-r from-transparent via-purple-500/5 to-transparent -translate-x-full group-hover/item:translate-x-full transition-transform duration-1000"></div>
-            
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              
-              <span className="text-slate-300 font-medium group-hover/item:text-white transition-colors">
-                {model}
-              </span>
-            </div>
-
-            <div className="absolute top-3 right-3 w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity">
-              <div className="absolute inset-0 bg-green-500 rounded-full animate-ping"></div>
-            </div>
-          </div>
+          <ModelCard 
+            key={`${model}-${idx}`}
+            model={model}
+          />
         ))}
       </div>
 
@@ -145,7 +157,7 @@ export default function BrandSection({ id, name, subtitle, iconColor, models, in
               </>
             ) : (
               <>
-                Ver todos los {models.length} modelos
+                Ver todos los {filteredModels.length} modelos
                 <svg className="w-5 h-5 group-hover/btn:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>

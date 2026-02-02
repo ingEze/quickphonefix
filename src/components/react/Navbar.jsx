@@ -29,7 +29,8 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden">
+        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden" aria-label="Abrir menú">
+          <span class="sr-only">Abrir menú</span>
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>

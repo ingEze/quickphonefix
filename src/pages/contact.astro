@@ -4,49 +4,44 @@ import Layout from '../layouts/Layout.astro'
 
 <Layout title="Contacto - QuickPhoneFix">
   <div class="min-h-screen bg-linear-to-b from-slate-900 via-slate-950 to-black relative">
-      <a 
-        href="/" 
-        class="
-        fixed top-4 left-4 z-50
-        flex items-center gap-2
-        px-4 py-2
-        bg-slate-900/90 backdrop-blur-xl
-        border border-slate-700 hover:border-cyan-500/50
-        rounded-xl
-        text-white font-semibold
-        transition-all duration-300
-        hover:scale-105
-        shadow-lg hover:shadow-cyan-500/20
-        cursor-pointer
-        group
-        ">
-        <svg class="w-5 h-5 text-cyan-400 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        <span>Atras</span>
-      </a>
 
+    <!-- Back Button -->
+    <a href="/" class="
+      fixed top-4 left-4 z-50 flex items-center gap-2
+      px-4 py-2 bg-slate-900/90 backdrop-blur-xl
+      border border-slate-700 hover:border-cyan-500/50
+      rounded-xl text-white font-semibold
+      transition-transform duration-300 hover:scale-105
+      shadow-lg hover:shadow-cyan-500/20 cursor-pointer group
+    ">
+      <svg class="w-5 h-5 text-cyan-400 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      <span>Atras</span>
+    </a>
+
+    <!-- Hero Section -->
     <section class="relative overflow-hidden border-b border-slate-800/50">
       <div class="absolute inset-0 bg-linear-to-br from-cyan-500/5 via-blue-500/5 to-transparent"></div>
-      <div class="absolute inset-0" style="background: radial-linear(ellipse at top, rgba(6, 182, 212, 0.15), transparent, transparent);"></div>
-      
-      <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10">
-        <div class="text-center">
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-white leading-[1.1] tracking-tight">
-            Visitanos o <span class="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text">Contáctanos</span>
-          </h1>
-          <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Estamos listos para ayudarte con la reparación de tu dispositivo
-          </p>
-        </div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at top, rgba(6,182,212,0.15), transparent 70%);"></div>
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10 text-center">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-white leading-[1.1] tracking-tight">
+          Visitanos o <span class="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Contáctanos</span>
+        </h1>
+        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
+          Estamos listos para ayudarte con la reparación de tu dispositivo
+        </p>
       </div>
     </section>
 
+    <!-- Contact Info & Map -->
     <div class="max-w-6xl mx-auto px-6 py-16">
 
+      <!-- Contact Cards -->
       <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        
-        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-all group">
+
+        <!-- Location Card -->
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/50 transition-colors group">
           <div class="flex items-start gap-4 mb-6">
             <div class="p-3 bg-cyan-500/10 rounded-xl group-hover:bg-cyan-500/20 transition-colors">
               <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,25 +54,12 @@ import Layout from '../layouts/Layout.astro'
               <p class="text-slate-400 text-sm">Encuéntranos aquí</p>
             </div>
           </div>
-          
           <div class="space-y-3 mb-6">
-            <p class="text-slate-300 text-lg leading-relaxed">
-              <span class="text-slate-400">Calle:</span> <span class="font-semibold">San Lorenzo 2323</span>
-            </p>
-            <p class="text-slate-300 text-lg leading-relaxed">
-              <span class="text-slate-400">Localidad:</span> <span class="font-semibold">Moreno</span>
-            </p>
-            <p class="text-slate-300 text-lg leading-relaxed">
-              <span class="text-slate-400">Provincia:</span> <span class="font-semibold">Buenos Aires, Argentina</span>
-            </p>
+            <p class="text-slate-300 text-lg leading-relaxed"><span class="text-slate-400">Calle:</span> <span class="font-semibold">San Lorenzo 2323</span></p>
+            <p class="text-slate-300 text-lg leading-relaxed"><span class="text-slate-400">Localidad:</span> <span class="font-semibold">Moreno</span></p>
+            <p class="text-slate-300 text-lg leading-relaxed"><span class="text-slate-400">Provincia:</span> <span class="font-semibold">Buenos Aires, Argentina</span></p>
           </div>
-          
-          <a 
-            href="https://www.google.com/maps/place/S.+Lorenzo+2323,+B1745KYI+La+Reja,+Provincia+de+Buenos+Aires/@-34.6706442,-58.8298675,3a,75y,54.42h,75.01t/data=!3m7!1e1!3m5!1sON1T75zqecmCRDAygBJiQA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D14.989100296118423%26panoid%3DON1T75zqecmCRDAygBJiQA%26yaw%3D54.42275318107829!7i16384!8i8192!4m13!1m7!3m6!1s0x95bc937e0abf65eb:0x7cf0f82233c163e1!2sS.+Lorenzo+2323,+B1745KYI+La+Reja,+Provincia+de+Buenos+Aires!3b1!8m2!3d-34.6704349!4d-58.8298593!3m4!1s0x95bc937e0abf65eb:0x7cf0f82233c163e1!8m2!3d-34.6704349!4d-58.8298593!17m2!4m1!1e3!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDEyNi4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-all group-hover:gap-3"
-          >
+          <a href="https://www.google.com/maps/place/S.+Lorenzo+2323,+B1745KYI+La+Reja,+Provincia+de+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-all group-hover:gap-3">
             Ver en Google Maps
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -85,7 +67,8 @@ import Layout from '../layouts/Layout.astro'
           </a>
         </div>
 
-        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-8 hover:border-green-500/50 transition-all group">
+        <!-- Contact Card -->
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-8 hover:border-green-500/50 transition-colors group">
           <div class="flex items-start gap-4 mb-6">
             <div class="p-3 bg-green-500/10 rounded-xl group-hover:bg-green-500/20 transition-colors">
               <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,52 +80,42 @@ import Layout from '../layouts/Layout.astro'
               <p class="text-slate-400 text-sm">Comunícate con nosotros</p>
             </div>
           </div>
-          
+
           <div class="space-y-4 mb-6">
-            <div class="space-y-4 mb-6">
 
-              <!-- phone -->
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                <div>
-                  <a 
-                    href="https://wa.me/5491123380549" 
-                    target="_blank" 
-                    class="text-slate-200 text-lg font-semibold hover:text-green-400 transition-colors"
-                  >
-                    +54 9 11 2338-0549
-                  </a>
-                </div>
-              </div>
-
-              <!-- instagram -->
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 shrink-0 text-orange-400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-                <a 
-                  href="https://www.instagram.com/quick.phonefix?igsh=NHY4ODBhMmprbnIz"
-                  target="_blank"
-                  class="text-slate-200 text-lg font-semibold hover:text-orange-400 transition-colors cursor-pointer"
-                >
-                  @quick.phonefix
-                </a>
-              </div>
-              
-              <!-- gmail -->
-              <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <a href="#emailForm" id="open-email-form" class="text-slate-200 text-lg font-semibold hover:text-cyan-400 transition-colors cursor-pointer">
-                  Envianos un email
-                </a>
-              </div>
-
+            <!-- phone -->
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <a href="https://wa.me/5491123380549" target="_blank" class="text-slate-200 text-lg font-semibold hover:text-green-400 transition-colors">
+                +54 9 11 2338-0549
+              </a>
             </div>
-          
+
+            <!-- instagram -->
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 shrink-0 text-orange-400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+              <a href="https://www.instagram.com/quick.phonefix?igsh=NHY4ODBhMmprbnIz" target="_blank" class="text-slate-200 text-lg font-semibold hover:text-orange-400 transition-colors">
+                @quick.phonefix
+              </a>
+            </div>
+
+            <!-- email -->
+            <div class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <a href="#emailForm" class="text-slate-200 text-lg font-semibold hover:text-cyan-400 transition-colors">
+                Envianos un email
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Horario -->
           <div class="flex items-center gap-3 text-green-400 bg-green-400/10 px-4 py-3 rounded-xl border border-green-500/20">
             <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -152,6 +125,7 @@ import Layout from '../layouts/Layout.astro'
               <p class="font-bold">Lun-Sáb: 12:00 - 18:00hs</p>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -162,106 +136,68 @@ import Layout from '../layouts/Layout.astro'
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
-             San lorenzo 2323, Moreno.
+            San lorenzo 2323, Moreno.
           </p>
         </div>
-        
+
+        <div class="w-full h-96 bg-slate-800/50 flex items-center justify-center text-slate-400 text-lg md:text-xl">
+          Cargando mapa...
+        </div>
+
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4097.448769766478!2d-58.8324342233709!3d-34.67043046102604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc937e0abf65eb%3A0x7cf0f82233c163e1!2sS.%20Lorenzo%202323%2C%20B1745KYI%20La%20Reja%2C%20Provincia%20de%20Buenos%20Aires!5e1!3m2!1sen!2sar!4v1769711908625!5m2!1sen!2sar"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4097.448769766478!2d-58.8324342233709!3d-34.67043046102604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc937e0abf65eb%3A0x7cf0f82233c163e1!2sS.+Lorenzo+2323%2C+B1745KYI+La+Reja%2C+Provincia+de+Buenos+Aires!5e1!3m2!1sen!2sar!4v1769711908625!5m2!1sen!2sar" 
           width="100%" 
           height="500" 
           style="border:0;" 
           allowfullscreen="" 
           loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          class="w-full"
+          referrerpolicy="no-referrer-when-downgrade" 
+          class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-500"
+          onload="this.style.opacity=1"
+          title="Mapa de ubicación del local QuickPhoneFix"
         ></iframe>
       </section>
 
-      <section class="max-w-3xl mx-auto mt-16">
-        <div class="relative">
-          <div class="absolute -inset-1 bg-linear-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-20"></div>
-          
-          <div class="relative bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-8 md:p-12">
-            <div class="text-center mb-5">
-              <h2 class="text-3xl md:text-4xl font-black text-white mb-3">
-                Envíanos un <span class="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text">Email</span>
-              </h2>
-              <p class="text-slate-400">
-                Completa el formulario y te responderemos a la brevedad
-              </p>
+      <!-- Email Form Section -->
+      <section class="max-w-3xl mx-auto mt-16 relative">
+        <div class="absolute -inset-1 bg-linear-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-20"></div>
+        <div class="relative bg-slate-900/50 backdrop-blur border border-slate-800 rounded-2xl p-8 md:p-12">
+          <div class="text-center mb-5">
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-3">
+              Envíanos un <span class="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Email</span>
+            </h2>
+            <p class="text-slate-400">Completa el formulario y te responderemos a la brevedad</p>
+          </div>
+
+          <form id="emailForm" class="space-y-6">
+            <!-- Campos sin JS adicional -->
+            <div class="space-y-2">
+              <label for="name" class="block text-slate-300 font-semibold">Nombre completo</label>
+              <input type="text" name="name" id="name" required placeholder="Martín Rodríguez" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors"/>
             </div>
 
-            <form id="emailForm" class="space-y-6 mb-2">
-              <div class="space-y-2">
-                <label for="name" class="block text-slate-300 font-semibold">
-                  Nombre completo
-                </label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  id="name" 
-                  required 
-                  autocomplete="name"
-                  placeholder="Martín Rodríguez"
-                  class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
-                >
-              </div>
+            <div class="space-y-2">
+              <label for="email" class="block text-slate-300 font-semibold">Email</label>
+              <input type="email" name="email" id="email" required placeholder="martinrodriguez123@gmail.com" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors"/>
+            </div>
 
-              <div class="space-y-2">
-                <label for="email" class="block text-slate-300 font-semibold">
-                  Email
-                </label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="email" 
-                  required 
-                  autocomplete="email"
-                  placeholder="martinrodriguez123@gmail.com"
-                  class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
-                >
-              </div>
+            <div class="space-y-2">
+              <label for="phone" class="block text-slate-300 font-semibold">Teléfono</label>
+              <input type="tel" name="phone" id="phone" required placeholder="+54 9 11 2345-6789" class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors"/>
+            </div>
 
-              <div class="space-y-2">
-                <label for="phone" class="block text-slate-300 font-semibold">
-                  Teléfono
-                </label>
-                <input 
-                  type="tel" 
-                  name="phone" 
-                  id="phone" 
-                  autocomplete="tel"
-                  placeholder="+54 9 11 2345-6789"
-                  class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
-                >
-              </div>
+            <div class="space-y-2">
+              <label for="message" class="block text-slate-300 font-semibold">Mensaje</label>
+              <textarea name="message" id="message" rows="5" required placeholder="Cuéntanos qué necesitas reparar..." class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-colors resize-none"></textarea>
+            </div>
 
-              <div class="space-y-2">
-                <label for="message" class="block text-slate-300 font-semibold">
-                  Mensaje
-                </label>
-                <textarea 
-                  name="message" 
-                  id="message" 
-                  rows="5" 
-                  required
-                  placeholder="Cuéntanos qué necesitas reparar..."
-                  class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none"
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit"
-                class="w-full px-6 py-4 bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                Enviar Mensaje
-              </button>
-            </form>
-          </div>
+            <button type="submit" class="w-full px-6 py-4 bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-xl transition-transform duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-[1.02] flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Enviar Mensaje
+            </button>
+          </form>
         </div>
       </section>
 
@@ -273,124 +209,6 @@ import Layout from '../layouts/Layout.astro'
 
 <style>
   @media (max-width: 640px) {
-    #toast-container {
-      left: 1rem;
-      right: 1rem;
-      top: 1rem;
-    }
+    #toast-container { left: 1rem; right: 1rem; top: 1rem; }
   }
 </style>
-
-<script type="module" is:inline>
-  let containerArray = []
-  let isSubmitting = false 
-
-  function showToast(message, type) {
-    containerArray = []
-    const container = document.getElementById('toast-container')
-    if (!container) return
-
-    const toast = document.createElement('div')
-    toast.className = `
-      pointer-events-auto
-      transform translate-x-[400px] opacity-0
-      transition-all duration-500 ease-out
-      max-w-sm w-full
-      bg-slate-900/95 backdrop-blur-xl
-      border rounded-xl
-      shadow-2xl
-      p-4
-      flex items-start gap-3
-      ${type === 'success' 
-        ? 'border-green-500/50 shadow-green-500/20' 
-        : 'border-red-500/50 shadow-red-500/20'
-      }
-    `
-
-    const icon = type === 'success' 
-      ? `<svg class="w-6 h-6 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-         </svg>`
-      : `<svg class="w-6 h-6 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-         </svg>`
-
-    toast.innerHTML = `
-      ${icon}
-      <div class="flex-1">
-        <p class="font-semibold ${type === 'success' ? 'text-green-400' : 'text-red-400'}">
-          ${type === 'success' ? '¡Éxito!' : 'Error'}
-        </p>
-        <p class="text-slate-300 text-sm mt-1">${message}</p>
-      </div>
-      <button class="toast-close text-slate-400 hover:text-white transition-colors shrink-0">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    `
-
-    container.appendChild(toast)
-    containerArray.push(toast)
-    
-    setTimeout(() => {
-      toast.classList.remove('translate-x-[400px]', 'opacity-0')
-      toast.classList.add('translate-x-0', 'opacity-100')
-    }, 10)
-
-    const closeBtn = toast.querySelector('.toast-close')
-    closeBtn?.addEventListener('click', () => removeToast(toast))
-
-    setTimeout(() => removeToast(toast), 2000)
-  }
-
-  function removeToast(toast) {
-    toast.classList.remove('translate-x-0', 'opacity-100')
-    toast.classList.add('translate-x-[400px]', 'opacity-0')
-    setTimeout(() => toast.remove(), 500)
-  }
-
-  const form = document.getElementById('emailForm')
-  const submitBtn = form.querySelector('button[type="submit"]') 
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    if (isSubmitting) return
-    isSubmitting = true
-    
-    if (submitBtn) {
-      submitBtn.disabled = true
-      submitBtn.classList.add('opacity-50', 'cursor-not-allowed')
-    }
-
-    const formData = new FormData(form)
-    const data = Object.fromEntries(formData.entries())
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-
-      if (res.ok) {
-        showToast('Tu mensaje ha sido enviado correctamente. Te responderemos a la brevedad.', 'success')
-        form.reset()
-      } else {
-        showToast('Ocurrió un error al enviar el mensaje. Por favor, intenta nuevamente.', 'error')
-      }
-    } catch (err) {
-      console.error(err)
-      showToast('Error de conexión. Verifica tu internet e intenta de nuevo.', 'error')
-    } finally {
-      setTimeout(() => {
-        isSubmitting = false
-        if (submitBtn) {
-          submitBtn.disabled = false
-          submitBtn.classList.remove('opacity-50', 'cursor-not-allowed')
-        }
-      }, 2000)
-    }
-  })
-</script>

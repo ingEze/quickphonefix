@@ -32,9 +32,15 @@ import react from "@astrojs/react"
 
 export default defineConfig({
   output: "static",
-  integrations: [react()],
+  integrations: [
+    react(),
+  ],
   server: {
     host: true,
+    allowedHosts: [
+      'hokily-unsociological-henley.ngrok-free.dev', 
+      '.ngrok-free.dev'
+    ]
   },
   vite: {
     build: {

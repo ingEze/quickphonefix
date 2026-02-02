@@ -1,41 +1,53 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 export default function BrandNav({ brands }) {
   const [activeSection, setActiveSection] = useState('')
+  const navRef = useRef(null)
+  const itemRefs = useRef({})
+  const scrollTimeoutRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = brands.map(brand => document.getElementById(brand.toLowerCase()))
-      const scrollPosition = window.scrollY + 200
+      if (scrollTimeoutRef.current) {
+        cancelAnimationFrame(scrollTimeoutRef.current)
+      }
 
-      for (const section of sections) {
-        if (section) {
-          const sectionTop = section.offsetTop
-          const sectionBottom = sectionTop + section.offsetHeight
+      scrollTimeoutRef.current = requestAnimationFrame(() => {
+        const sections = brands.map(brand => document.getElementById(brand.toLowerCase()))
+        const scrollPosition = window.scrollY + 200
 
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            setActiveSection(section.id)
-            break
+        for (const section of sections) {
+          if (section) {
+            const sectionTop = section.offsetTop
+            const sectionBottom = sectionTop + section.offsetHeight
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+              setActiveSection(section.id)
+              break
+            }
           }
         }
-      }
+      })
     }
 
-    window.addEventListener('scroll', handleScroll)
-    handleScroll() 
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeoutRef.current) {
+        cancelAnimationFrame(scrollTimeoutRef.current)
+      }
+    }
   }, [brands])
 
-  const navRef = useRef(null)
-  const itemRefs = useRef({})
   useEffect(() => {
-    if(!activeSection) return
+    if (!activeSection) return
 
     const container = navRef.current
     const item = itemRefs.current[activeSection]
 
-    if(!container || !item) return
+    if (!container || !item) return
 
     const containerRect = container.getBoundingClientRect()
     const itemRect = item.getBoundingClientRect()
@@ -50,10 +62,9 @@ export default function BrandNav({ brands }) {
       left: container.scrollLeft + offset,
       behavior: 'smooth'
     })
-
   }, [activeSection])
 
-  const scrollToBrand = (brand) => {
+  const scrollToBrand = useCallback((brand) => {
     const element = document.getElementById(brand.toLowerCase())
     if (element) {
       const offset = 150
@@ -65,7 +76,7 @@ export default function BrandNav({ brands }) {
         behavior: 'smooth'
       })
     }
-  }
+  }, [])
 
   return (
     <section className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-xl border-y border-slate-800/50 py-4 px-4 shadow-2xl">
