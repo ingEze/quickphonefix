@@ -1,0 +1,141 @@
+---
+import { Star } from 'lucide-react'
+
+const testimonials = [
+  { name: "María Palavecino", phone: "iPhone 13 Pro", comment: "Increíble servicio. Me arreglaron la pantalla en menos de 2 horas.", rating: 5 },
+  { name: "Lucas Torres", phone: "Samsung Galaxy A20s", comment: "Mi teléfono tenía la pantalla destruida, lo dejaron como nuevo en un instante.", rating: 5 },
+  { name: "Lucía Fernández", phone: "Xiaomi Redmi Note 11", comment: "Súper recomendable. Cambio de batería rápido y económico.", rating: 5 }
+]
+---
+
+<section id="testimonials" class="py-20 px-4 bg-slate-900/30">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-4 bg-linear-to-r from-yellow-400 to-orange-400 bg-clip-text">
+      Lo que Dicen Nuestros Clientes
+    </h2>
+    <p class="text-center text-slate-400 mb-16 text-lg">Opiniones verificadas de clientes satisfechos</p>
+    
+    <div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-6 md:p-12">
+      <div class="absolute top-4 left-4 text-6xl text-yellow-400 opacity-20" aria-hidden="true">"</div>
+      
+      <div class="testimonial-container">
+        {testimonials.map((testimonial, idx) => (
+          <div 
+            class={`testimonial-item ${idx === 0 ? 'active' : ''}`}
+            data-testimonial={idx}
+          >
+            <div class="flex justify-center mb-4" aria-label={`Calificación: ${testimonial.rating} estrellas`}>
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            
+            <p class="text-lg md:text-xl text-slate-300 mb-6 text-center italic">
+              {testimonial.comment}
+            </p>
+            
+            <div class="text-center">
+              <p class="font-bold text-lg">{testimonial.name}</p>
+              <p class="text-slate-400">{testimonial.phone}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex justify-center gap-4 mt-8">
+        {testimonials.map((_, idx) => (
+          <button
+            class={`testimonial-dot w-3 h-3 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-yellow-400 w-8' : 'bg-slate-700'}`}
+            data-index={idx}
+            aria-label={`Ver testimonio ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .testimonial-item.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  .testimonial-dot {
+    cursor: pointer;
+  }
+  
+  .testimonial-dot:hover {
+    background-color: rgb(100, 116, 139);
+  }
+  
+  .testimonial-dot.bg-yellow-400:hover {
+    background-color: rgb(250, 204, 21);
+  }
+</style>
+
+<script>
+  let currentTestimonial = 0
+  const testimonials = document.querySelectorAll('.testimonial-item')
+  const dots = document.querySelectorAll('.testimonial-dot')
+  const totalTestimonials = testimonials.length
+
+  function showTestimonial(index: number) {
+    testimonials.forEach((item, i) => {
+      if (i === index) {
+        item.classList.add('active')
+      } else {
+        item.classList.remove('active')
+      }
+    })
+
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('bg-yellow-400', 'w-8')
+        dot.classList.remove('bg-slate-700')
+      } else {
+        dot.classList.remove('bg-yellow-400', 'w-8')
+        dot.classList.add('bg-slate-700')
+      }
+    })
+
+    currentTestimonial = index
+  }
+
+  let intervalId = setInterval(() => {
+    const nextIndex = (currentTestimonial + 1) % totalTestimonials
+    showTestimonial(nextIndex)
+  }, 5000)
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      clearInterval(intervalId)
+      showTestimonial(index)
+      
+      intervalId = setInterval(() => {
+        const nextIndex = (currentTestimonial + 1) % totalTestimonials
+        showTestimonial(nextIndex)
+      }, 5000)
+    })
+  })
+
+  const container = document.querySelector('.testimonial-container')
+  if (container) {
+    container.addEventListener('mouseenter', () => {
+      clearInterval(intervalId)
+    })
+
+    container.addEventListener('mouseleave', () => {
+      intervalId = setInterval(() => {
+        const nextIndex = (currentTestimonial + 1) % totalTestimonials
+        showTestimonial(nextIndex)
+      }, 5000)
+    })
+  }
+</script>

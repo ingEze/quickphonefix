@@ -1,26 +1,33 @@
 ---
-import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import Navbar from '../components/react/Navbar.jsx'
 import Hero from '../components/react/Hero.jsx'
 import Services from '../components/mainPage/Services.astro'
 import Brands from '../components/mainPage/Brands.astro'
 import Works from '../components/mainPage/Works.astro'
-import Testimonials from '../components/react/Testimonials.jsx'
+import Testimonials from '../components/mainPage/Testimonials.astro'
 import Contact from '../components/mainPage/Contact.astro'
 import Footer from '../components/mainPage/Footer.astro'
-
-const works = await getCollection('works')
 ---
-<Layout title="QuickPhoneFix">
+<Layout title="QuickPhoneFix - Reparación de Celulares Rápida y Confiable">
 	<div class="min-h-screen bg-slate-950 text-white overflow-x-hidden">
 		<Navbar client:visible/>
-		<Hero client:visible />
+		<Hero client:visible/>
 		<Services />
 		<Brands />
-		<Works works={works} />
-		<Testimonials client:visible/>
+		<Works />
+		<Testimonials />
 		<Contact />
 		<Footer />
 	</div>
 </Layout>
+
+<style>
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+</style>

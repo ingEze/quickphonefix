@@ -1,4 +1,4 @@
-import { Smartphone, Apple, Cpu, Zap, Flower2, Tv, Triangle, Infinity, Phone, Smile } from "lucide-react"
+import { Apple, Flower2, Tv, Triangle, Infinity, Phone, Smile } from "lucide-react"
 
 export const IphoneIcon = () => <Apple className="w-8 h-8 md:w-12 md:h-12" />
 

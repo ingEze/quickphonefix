@@ -8,9 +8,14 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className=" bg-linear-to-br rounded-full flex items-center justify-center">
-            <img src="/logo/logo.webp" alt="Logo" className="w-16 h-16 rounded-full" />
-          </div>
+          <img 
+            src="/logo/logo-64.webp"
+            srcset="/logo/logo-64.webp 1x, /logo/logo-128.webp 2x, /logo/logo-192.webp 3x"
+            width="64" 
+            height="64"
+            alt="Logo" 
+            className="w-16 h-16 rounded-full" 
+          />
           <span className="text-xl font-bold">QuickPhoneFix</span>
         </div>
         
@@ -39,5 +44,5 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-  );
+  )
 }
